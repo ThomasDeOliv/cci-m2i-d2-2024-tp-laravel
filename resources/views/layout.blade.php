@@ -1,10 +1,12 @@
 <html>
 <head>
+    @yield('styles')
     @yield('title')
 </head> 
 <body>
     @include('partials.navbar')
     @yield('content')
     @include('partials.footer')
+    @yield('scripts')
 </body>
 </html>

@@ -4,6 +4,10 @@
     $viewTitle = "Acceuil";
 @endphp
 
+@section('styles')
+    <link type="text/css" href="{{ mix('assets/css/app.css') }}" rel="stylesheet"/>
+@endsection
+
 @section('title')
     <title>{{ config('app.name') . ' - ' . $viewTitle }}</title>
 @endsection
@@ -14,6 +18,10 @@
         <input type="text" name="password" placeholder="Password">
         <input type="submit" value="go admin">
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ mix('assets/js/app.js') }}"></script>
 @endsection
 <!-- //
 // Change password too in /public/admin-doors.php

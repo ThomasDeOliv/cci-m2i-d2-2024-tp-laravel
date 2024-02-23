@@ -12,7 +12,7 @@ return new class extends Migration
     function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('id')->primary(); // todo : this is a uuid (but the model not working, "autoincrement error")
+            $table->uuid('id')->primary(); // todo : this is a uuid (but the model not working, "autoincrement error")
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
