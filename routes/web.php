@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Partner\PartnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    echo (new \App\Http\Controllers\Controller())->index();
-});
-Route::get('/assosier', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->index();
-});
-Route::get('/assosier-creer', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->create();
-});
-Route::post('/assosier-creer-2', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->store();
-});
-Route::get('/assosier-show', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->show();
-});
-Route::get('/assosier-detruite', function () {
-    echo (new \App\Http\Controllers\AssocierControlleurs)->delete();
-});
+Route::get('/', [PartnerController::class, 'index'])->name('partner.index');
+Route::get('/partner', [PartnerController::class, 'index'])->name('partner.main');
+Route::get('/about', [PartnerController::class, 'about'])->name('partner.about');
+Route::get('/contact', [PartnerController::class, 'contact'])->name('partner.contact');
+Route::get('/show/{id}', [PartnerController::class, 'show'])->whereNumber('id')->name('partner.show');
+Route::get('/store', [PartnerController::class, 'create'])->name('partner.create');
+Route::post('/store', [PartnerController::class, 'store'])->name('partner.store');
+Route::get('/partner-destroy', [PartnerController::class, 'destroy'])->name('partner.destroy');
